@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title some</title>
+</head>
+<body>
+    {% for i in answer %}
+        <p>{{i["UUID"]}}: {{i["request_time"]}}: {{i["date_now"]}}</p>
+    {% endfor %}
+    {{res}}
+</body>
+</html>

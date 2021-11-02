@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
+
+
+    {# csrf_token #}
+
+{% if username %}
+
+    <h1>{{ username }}</h1>
+    <a href ='/'> переход на главную </a><br><a href ='/logout'> переход для сброса кукисов </a>
+{% else %}
+    {{ username }}
+    <form id="login" action="" method="post">
+    <p>Поле для ввода юзернайма </p>
+    <input type="text" name="username">
+    <button type="submit">Войти</button>
+    </form>
+    <a href ='/'> переход на главную </a><br><a href ='/logout'> переход для сброса кукисов </a>
+{% endif %}
+
+</body>
+</html>

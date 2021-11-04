@@ -13,20 +13,20 @@ def before_request():
     g.request_time = lambda: "%.5fs" % (time.time() - g.request_start_time)
 
 
-@app.route("/<int:num_question>")
-def answer(num_question):
-
-    answer = []
-
-    for i in range(1, num_question+1):
-        answer.append(
-            {
-                "UUID":uuid.uuid4(),
-                "request_time":g.request_time(),
-                "date_now":datetime.datetime.now()
-            }
-        )
-    return render_template('answer.html', answer=answer)
+# @app.route("/<int:num_question>")
+# def answer(num_question):
+#
+#     answer = []
+#
+#     for i in range(1, num_question+1):
+#         answer.append(
+#             {
+#                 "UUID":uuid.uuid4(),
+#                 "request_time":g.request_time(),
+#                 "date_now":datetime.datetime.now()
+#             }
+#         )
+#     return render_template('answer.html', answer=answer)
 @app.route("/")
 def get_count_of_user_visits_by_cookie():
 

@@ -46,21 +46,21 @@ def hello():
 @app.route('/genre_add', methods=['GET', 'POST'])
 def genre_add():
    if request.method == "POST":
-       # try: does not work correctly
+        try: 
 
-        new_genre = Genre(name = request.form["genre_name"])
-        db.session.add(new_genre)
-        db.session.flush()
-        new_movie = Movie(title = request.form["movie_title"],
-                            genre_id = new_genre.id
-                            )
-        db.session.add(new_movie)
-        db.session.commit()
+            new_genre = Genre(name = request.form["genre_name"])
+            db.session.add(new_genre)
+            db.session.flush()
+            new_movie = Movie(title = request.form["movie_title"],
+                                genre_id = new_genre.id
+                                )
+            db.session.add(new_movie)
+            db.session.commit()
 
 
-       # except:
-       #     db.session.rollback()
-       #     print("Error add to DateBase")
+        except:
+                db.session.rollback()
+                print("Error add to DateBase")
    return render_template("genre_add.html", title="Добавить жанр")
 
 
